@@ -9,26 +9,38 @@ const scraperObject = {
     await page.goto(this.url);
 
     let ticket = process.env.TICKET_NAME
-    const result = await page.evaluate((ticket) => {
-      let elements = document.getElementsByClassName('css-5ox9as e693ju60');
-      for (let element of elements) {
-        if (element.textContent === ticket) {
-          const parent = element.parentElement
-          const greatParent = parent.parentElement
-          const greatgreatParent = greatParent.parentElement
-          const check = greatgreatParent.innerHTML
 
-          if (check.includes('disabled') === false) {
-            //if (element.textContent === ticket) element.click();
-            return { status: true, url: window.location.url }
+    let result = { status: false, url: '' }
+
+    while (result.status === false) {
+      await page.waitForTimeout(5000);
+      console.log('Checking for availability...')
+
+      result = await page.evaluate((ticket) => {
+        let elements = document.getElementsByClassName('css-5ox9as e693ju60');
+        for (let element of elements) {
+          if (element.textContent === ticket) {
+            const parent = element.parentElement
+            const greatParent = parent.parentElement
+            const greatgreatParent = greatParent.parentElement
+            let check = greatgreatParent.innerHTML
+
+            if (check.includes('disabled') === false) {
+              //if (element.textContent === ticket) element.click();
+              return { status: true, url: window.location.url }
+            }
           }
         }
-      }
-      return false
-    }, ticket);
+        return { status: false, url: '' }
+      }, ticket);
 
-    if (result.status && result.status === true) {
-      webhook(result.url)
+      if (result.status && result.status === true) {
+        console.log('-> Available !')
+        webhook(result.url)
+        break
+      } else {
+        continue
+      }
     }
   }
 }
