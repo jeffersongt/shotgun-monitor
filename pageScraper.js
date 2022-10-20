@@ -47,7 +47,7 @@ const scraperObject = {
 }
 
 function webhook(url) {
-  const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/1031599584469843998/Hmmd0ZEhMN1QMIJqVMkGXnp_RR3iWYkcsq4HcXTDADDPUiv0-MNVwUBaW79DtUqsihQ8' });
+  const webhookClient = new WebhookClient({ url: process.env.DISCORD_WEBHOOK });
   const embed = new EmbedBuilder()
     .setTitle(process.env.URL)
     .setColor('#60539c')
