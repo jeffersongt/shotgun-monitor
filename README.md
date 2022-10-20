@@ -8,14 +8,14 @@
 
 - [Node.js](https://nodejs.org/en/about/)
 - [Puppeteer](https://github.com/puppeteer/puppeteer)
-- [Discord Webhhok](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
+- [Discord Webhhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
 
 ## :computer: Usage
 
 ### :rocket: Clone repository
 
 ```sh
-git clone https://github.com/jeffersongt/pg-gen
+git clone https://github.com/jeffersongt/shotgun-monitor
 ```
 
 ### :hammer: Build and Install project
