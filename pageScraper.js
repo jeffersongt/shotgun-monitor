@@ -37,7 +37,8 @@ const scraperObject = {
       if (result.status && result.status === true) {
         console.log('-> Available !')
         webhook(result.url)
-        break
+        await page.close()
+        process.exit()
       } else {
         continue
       }
