@@ -14,6 +14,7 @@ const scraperObject = {
 
     while (result.status === false) {
       await page.waitForTimeout(5000);
+      await page.reload({ waitUntil: ["networkidle0", "domcontentloaded"] });
       console.log('Checking for availability...')
 
       result = await page.evaluate((ticket) => {
