@@ -38,8 +38,9 @@ const scraperObject = {
       if (result.status && result.status === true) {
         console.log('-> Available !')
         webhook(result.url)
-        await page.close()
-        process.exit()
+        page.close()
+        break
+        //process.exit()
       } else {
         continue
       }
@@ -59,6 +60,7 @@ function webhook(url) {
       avatarURL: 'https://play-lh.googleusercontent.com/8q4cxv9SUUAm64ox4tT_XFx41X2o0sF9jItPJTuH0ShWN1Cu7V89vww5dUcer8dDUco',
       embeds: [embed],
     });
+    return
   } catch (err) {
     throw err
   }
