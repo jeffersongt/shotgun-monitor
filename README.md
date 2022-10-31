@@ -1,7 +1,5 @@
 # Shotgun-monitor
 
-- In progress
-
 - What is Shotgun ? Shotgun is a ticket app for tons of events. You can buy and resale your tickets. There are generally different categories of tickets at different prices: Early, Regular, Late. But in most of the time, the less expensive can sold out very fast.
 - So I created this tool to permit anyone to grab a ticket at the price wanted when someone is selling back one.
 - Please notice that the event should still have places available for at least one category of tickets as at the moment we do not support the waiting list.
@@ -22,7 +20,7 @@ git clone https://github.com/jeffersongt/shotgun-monitor
 
 ### :hammer: Build and Install project
 
-The following command will build the project install `pgen` on your system:
+The following command will install the project dependencies:
 
 ```sh
 npm install
